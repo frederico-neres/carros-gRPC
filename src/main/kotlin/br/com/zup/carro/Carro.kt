@@ -1,12 +1,12 @@
 package br.com.zup.carro
 
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import javax.persistence.*
+import javax.validation.constraints.NotBlank
 
 @Entity
-class Carro(val modelo: String, val placa: String) {
+class Carro(
+    @field:NotBlank @field:Column(nullable = false) val modelo: String,
+    @field:NotBlank @field:Column(nullable = true, unique = true) val placa: String) {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
